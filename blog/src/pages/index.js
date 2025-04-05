@@ -8,6 +8,7 @@ import * as styles from "../components/index.module.css"
 
 const IndexPage = ({ data }) => (
   <Layout>
+    <Seo title="Home" />
     <ul className={styles.list}>
       {
         data.allContentfulBlogPost.edges.map(edge => (

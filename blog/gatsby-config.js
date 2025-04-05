@@ -3,10 +3,11 @@
  *
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
  */
+require(`dotenv`).config({
+  path: `.env.${process.env.NODE_ENV}`
+})
 
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
+/** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
   siteMetadata: {
     title: `Gatsby Blog`,
@@ -23,9 +24,9 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `${process.env.SPACE_ID}`,
-        accessToken: `${process.env.ACCESS_TOKEN}`,
-        environment: `${process.env.CONTENTFUL_ENVIRONMENT}`
+        spaceId: process.env.SPACE_ID,
+        accessToken: process.env.ACCESS_TOKEN,
+        environment: process.env.CONTENTFUL_ENVIRONMENT || "master"
       }
     },
     `gatsby-plugin-image`,
@@ -46,12 +47,9 @@ module.exports = {
         short_name: `starter`,
         start_url: `/`,
         background_color: `#663399`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/gatsby-icon.png`,
       },
     },
-  ],
+  ]
 }
