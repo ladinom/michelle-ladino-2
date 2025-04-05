@@ -1,10 +1,10 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import styled, { ThemeProvider } from "styled-components"
+import styled from "styled-components"
 
-import { Header } from "./Header"
+import Header from "./Header"
 import "./layout.css"
-import { Gray } from "./themes/Gray"
+
 
 const Content = styled.div`
   margin: 0 auto;
@@ -29,17 +29,18 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <ThemeProvider theme={Gray} >
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <Content>
-        <main>{children}</main>
-        <Footer>
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </Footer>
-      </Content>
-    </ThemeProvider>
+    <>
+    <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+    <Content>
+      <main>{children}</main>
+      <Footer>
+        {new Date().getFullYear()} &middot; Built with
+        {` `}
+        <a href="https://www.gatsbyjs.com">Gatsby</a>
+      </Footer>
+    </Content>
+    </>
+    
   )
 }
 
