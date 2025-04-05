@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
+
 const StyledHeader = styled.header`
   margin: 0 auto;
   padding: var(--space-4) var(--size-gutter);
@@ -25,4 +26,4 @@ const Header = ({ siteTitle }) => (
   </StyledHeader>
 )
 
-export { Header }
+export default Header;
