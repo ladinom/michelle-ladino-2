@@ -4,11 +4,11 @@ import styled from 'styled-components'
 import { BaseButton } from './BaseButton'
 
 const StyleButton = styled(BaseButton)`
-    // Inject theme styles here later
+    ${({ theme, variant }) => theme.variants.IconButton[variant || 'primary' ]}
 `
 
 export const IconButton = styled(({ icon, ...rest }) => {
-    let clone = React.cloneElement{icon, rest}
+    let clone = React.cloneElement(icon, rest)
     return <StyleButton {...rest} className={rest.className}>{clone}</StyleButton>
 })`
     //We could add styles here, but is not neccesary.
