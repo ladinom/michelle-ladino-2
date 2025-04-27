@@ -29,13 +29,13 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={Gray} >
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <Content>
-        <Main>{children}</Main>
+        <Main m={20}>{children}</Main>
         <Footer
-          style={{
-            marginTop: `var(--space-S)`,
-            fontSize: `var(--font-sm)`,
-          }}
-          >
+        style={{
+          marginTop: `var(--space-5)`,
+          fontSize: `var(--font-sm)`,
+        }}
+        >
           © {new Date().getFullYear()} &middot; Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
